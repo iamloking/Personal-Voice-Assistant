@@ -1,0 +1,29 @@
+			pyttsx3 Jarvis DAY1
+
+
+1.	I am using python -v 3.8 and i tried to play with pyttsx3 for the jarvis project , but it showed a TypeError.
+2.	I think the pyttsx3 is not for the latest version of python, so i installed python -v 3.6.8 , but i am getting the same error.
+3.	So after googling the problem , i now have used the command
+	ModuleNotFoundError.
+4.	Again after googling i found a solution to this error. it is to "pip install pywin32" and voila its working.
+5. 	I am going to try the same thing but with the python -v 3.8.1 interpreter.
+6.	And its working. So the issue wasn't the version of python but the version "pyttsx3" and then "win32 client".
+7.	To take commands a module named "SpeechRecognition" will be used. But even after installing it am getting an error , that 		PyAudio not found, check installation.	 
+8. 	I tried to pip install pyaudio but it didn't work. So now i am pip installing pipwin first then i will pipwin install pyaudio.
+
+
+			When i tried to make an executable file
+9.	While testing the executable file , the first error i faced was "ModuleNotFoundError" for "pyttsx3" and then "win32....". Which i 		solved by adding the command below in my setup file on which the cx_freeze module builds.
+
+
+	#code for the setup file#
+from cx_Freeze import setup , Executable
+setup(name = 'JARVIS',
+        version ='0.4',
+        description = 'Bot',
+       *options = {"build_exe":{"packages":["pyttsx3",'win32com.server.util'],"excludes":[""]}},*
+        executables = [Executable("F:\projects\jarvis\jarvis.py")])
+
+10.	Now the exe file is working completely fine.
+
+
